@@ -489,6 +489,32 @@
       <a href="https://github.com/moyebisi/lung-cancer-risk-analysis" target="_blank" class="btn-primary">View on GitHub</a>
     </div>
   </div>
+  <div class="project-card" data-category="sql powerbi">
+    <span class="pc-tag">SQL + Power BI</span>
+    <h3>Pizza Sales Dashboard</h3>
+    <p>A two-page Power BI dashboard analyzing a year of pizza sales data (48,620 orders), backed by SQL queries used to validate and explore the underlying dataset.</p>
+    <div class="pc-skills">
+      <span class="pc-skill">SQL</span>
+      <span class="pc-skill">Power BI</span>
+      <span class="pc-skill">Data Aggregation</span>
+      <span class="pc-skill">Dashboard Design</span>
+      <span class="pc-skill">Data Visualization</span>
+    </div>
+    <div style="margin-bottom: 1rem;">
+      <p style="font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 0.5rem;"><strong style="color: var(--ink);">Key Insights</strong></p>
+      <ul style="list-style: none; padding: 0;">
+        <li style="font-size: 0.85rem; color: var(--ink-soft); padding: 0.18rem 0; padding-left: 1rem; position: relative;"><span style="position:absolute;left:0;color:var(--mustard);">–</span>$817.86K total revenue across 21,350 orders (49,574 pizzas sold, avg 2.32 pizzas per order)</li>
+        <li style="font-size: 0.85rem; color: var(--ink-soft); padding: 0.18rem 0; padding-left: 1rem; position: relative;"><span style="position:absolute;left:0;color:var(--mustard);">–</span>Classic category and Large size drive the most sales</li>
+        <li style="font-size: 0.85rem; color: var(--ink-soft); padding: 0.18rem 0; padding-left: 1rem; position: relative;"><span style="position:absolute;left:0;color:var(--mustard);">–</span>Orders peak Thursday through Saturday, with Friday the single busiest day</li>
+        <li style="font-size: 0.85rem; color: var(--ink-soft); padding: 0.18rem 0; padding-left: 1rem; position: relative;"><span style="position:absolute;left:0;color:var(--mustard);">–</span>The Thai Chicken Pizza and Classic Deluxe Pizza are top performers; The Brie Carre Pizza is the clear worst performer across revenue, quantity, and orders</li>
+      </ul>
+    </div>
+    <img src="https://raw.githubusercontent.com/moyebisi/pizza-sales-dashboard/main/Pizza_dashboard_Home_page.png" alt="Pizza Sales Dashboard Home Page" style="width:100%; border-radius:8px; border:1px solid var(--border); margin-bottom:1.25rem;" />
+    <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+      <a href="https://github.com/moyebisi/pizza-sales-dashboard" target="_blank" class="btn-primary">View on GitHub</a>
+      <a href="https://github.com/moyebisi/pizza-sales-dashboard/raw/main/pizza_sales_excel_file.xlsx" target="_blank" class="btn-outline">Download Excel File</a>
+    </div>
+  </div>
 
   </div>
  <div class="project-card project-placeholder" data-category="sql" style="text-align: center;">
@@ -712,7 +738,8 @@ function filterProjects(category, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   document.querySelectorAll('.project-card').forEach(card => {
-    if (category === 'all' || card.dataset.category === category) {
+    const cardCategories = (card.dataset.category || '').split(' ');
+    if (category === 'all' || cardCategories.includes(category)) {
       card.classList.remove('hidden');
     } else {
       card.classList.add('hidden');
